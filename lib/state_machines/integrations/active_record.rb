@@ -527,7 +527,7 @@ module StateMachines
 
       # Runs state events around the machine's :save action
       def around_save(object)
-        object.class.state_machines.transitions(object, action).perform { yield }
+        object.class.state_machines.transitions(object, action.to_s).perform { yield }
       end
 
       # Creates a scope for finding records *with* a particular state or
